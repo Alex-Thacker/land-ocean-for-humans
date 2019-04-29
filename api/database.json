@@ -1,0 +1,87 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "userName": "alex",
+            "password": "alex"
+        },
+        {
+            "id": 2,
+            "userName": "test",
+            "password": "test"
+        }
+    ],
+    "poolAds": [
+        {
+            "id": 1,
+            "userId": 1,
+            "photoLink": "",
+            "timeAvailable": "5",
+            "cost": 10,
+            "description": "no pets allowed",
+            "location": "123 test lane",
+            "dateAvailable": "4/29/19"
+        },
+        {
+            "id": 2,
+            "userId": 2,
+            "photoLink": "",
+            "timeAvailable": "50",
+            "cost": 100,
+            "description": "pool is super deep",
+            "location": "90210 another address lane",
+            "dateAvailable": "3/19/19"
+        },
+        {
+            "id": 3,
+            "userId": 1,
+            "photoLink": "",
+            "timeAvailable": "522",
+            "cost": 0,
+            "description": "super test mode",
+            "location": "555 devils lane",
+            "dateAvailable": "1/29/19"
+        }
+    ],
+    "savedPools": [
+        {
+            "id": 1,
+            "userId": 1,
+            "poolAdId": 3
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "poolAdId": 2
+        },
+        {
+            "id": 3,
+            "userId": 2,
+            "poolAdId": 3
+        }
+    ],
+    "savedGames": [
+        {
+            "id": 1,
+            "userId": 1,
+            "poolGameId": 1
+        }
+    ],
+    "poolGames": [
+        {
+            "id": 1,
+            "description": "marco-polo",
+            "miniumPlayers": 2,
+            "requiredItems": "none",
+            "maxPlayers": "unlimited"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "userId": 1,
+            "poolAdId": 1,
+            "comment": "pool is dope"
+        }
+    ]
+}
