@@ -14,6 +14,11 @@
       "id": 3,
       "userName": "Goku",
       "password": "goku"
+    },
+    {
+      "userName": "gohan",
+      "password": "gohan",
+      "id": 4
     }
   ],
   "poolAds": [
@@ -76,9 +81,40 @@
       "location": "5555 eagle lane",
       "dateAvailable": "0222-02-22",
       "id": 6
+    },
+    {
+      "userId": 4,
+      "photoLink": "",
+      "timeAvailable": "gohans",
+      "cost": "first",
+      "description": "for a pool",
+      "location": "post",
+      "dateAvailable": "2222-02-22",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "photoLink": "",
+      "timeAvailable": "another test",
+      "cost": "another test",
+      "description": "doing yet another test",
+      "location": "ttttttt",
+      "dateAvailable": "33333-03-31",
+      "id": 8
     }
   ],
-  "savedPools": [],
+  "savedPools": [
+    {
+      "userId": 1,
+      "poolAdId": 2,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "poolAdId": 7,
+      "id": 2
+    }
+  ],
   "savedGames": [
     {
       "id": 1,

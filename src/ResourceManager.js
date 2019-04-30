@@ -3,6 +3,15 @@ export default {
     getUsers() {
         return fetch("http://localhost:5002/users").then(r => r.json())
     },
+    postUsers(object) {
+        return fetch("http://localhost:5002/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(object)
+        }).then(e => e.json())
+    },
     //fetch call used to populate state in application views. gets called to get starting data
     getUserData(resource, id) {
         return fetch(`http://localhost:5002/${resource}?userId=${id}`).then(r => r.json())

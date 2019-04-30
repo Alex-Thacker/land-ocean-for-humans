@@ -4,6 +4,7 @@ export default class SavedPools extends Component {
   render() {
     return (
       <React.Fragment>
+        <h1>Pools you're Following!</h1>
         {
           this.props.savedPools.map(savedPool =>
             <div key={savedPool.id}>

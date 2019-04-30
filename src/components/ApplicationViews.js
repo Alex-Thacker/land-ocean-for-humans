@@ -10,6 +10,7 @@ import ViewMyPosts from "./postPool/ViewMyPosts"
 import PoolAdEditForm from "./postPool/PoolAdEditForm"
 import FindPool from "./findPool/FindPool"
 import SavedPools from "./savedItems/SavedPools"
+import Register from "./login/Register"
 
 export default class ApplicationViews extends Component {
     state = {
@@ -43,8 +44,20 @@ export default class ApplicationViews extends Component {
             .then(() => this.setState(newState))
     }
 
+    isValid = () => sessionStorage.getItem("valid") !== null
+
+    isRegister = () => sessionStorage.getItem("valid") === null
+
     onLogin = () => {
         this.loadAllData()
+    }
+
+    postUsers = (object) => {
+        return ResourceManager.postUsers(object)
+            .then(() => ResourceManager.getUsers())
+            .then(user => this.setState({
+                users: user
+            }))
     }
 
     postPoolAd = (object) => {
@@ -93,11 +106,26 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/" render={(props) => {
                     return <Login users={this.state.users} {...props} onLogin={this.onLogin} />
                 }} />
+                <Route exact path="/register" render={(props) => {
+                    if (this.isRegister()){
+                        return <Register onLogin={this.onLogin} {...props} users={this.state.users} postUsers={this.postUsers} />
+                    } else {
+                        return <Redirect to="/home" />
+                      }
+                }} />
                 <Route path="/home" render={(props) => {
-                    return <Home {...props} />
+                    if (this.isValid()) {
+                        return <Home {...props} />
+                    } else {
+                        return <Redirect to="/" />
+                    }
                 }} />
                 <Route exact path="/postpool" render={(props) => {
-                    return <PostPool {...props} />
+                    if(this.isValid()){
+                        return <PostPool {...props} />
+                    } else {
+                        return <Redirect to="/" />
+                    }
                 }} />
                 <Route exact path="/postpool/postpoolform" render={(props) => {
                     return <PostPoolForm {...props} postPoolAd={this.postPoolAd} />
@@ -112,10 +140,18 @@ export default class ApplicationViews extends Component {
                     return <PoolAdEditForm putPoolAd={this.putPoolAd} {...props} />
                 }} />
                 <Route exact path="/findpool" render={(props) => {
-                    return <FindPool findPools={this.state.findPools} {...props} users={this.state.users} postSavedPool={this.postSavedPool} savedPools={this.state.savedPools} />
+                    if(this.isValid()) {
+                        return <FindPool findPools={this.state.findPools} {...props} users={this.state.users} postSavedPool={this.postSavedPool} savedPools={this.state.savedPools} />
+                    } else {
+                        return <Redirect to="/" />
+                    }
                 }} />
                 <Route exact path="/mysaveditems" render={(props) => {
-                    return <SavedPools savedPools={this.state.savedPools} {...props} users={this.state.users} deleteSavedPool={this.deleteSavedPool} />
+                    if(this.isValid()) {
+                        return <SavedPools savedPools={this.state.savedPools} {...props} users={this.state.users} deleteSavedPool={this.deleteSavedPool} />
+                    } else {
+                        return <Redirect to="/" />
+                    }
                 }} />
             </React.Fragment>
         )

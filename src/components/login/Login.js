@@ -40,6 +40,7 @@ export default class Login extends Component {
               <label>Enter Password: </label>
               <input type="password" onChange={this.handleChange} id="password" />
               <button type="submit">Login</button>
+              <button onClick={() => this.props.history.push("/register")}>Register New User</button>
           </form>
         
       </React.Fragment>
