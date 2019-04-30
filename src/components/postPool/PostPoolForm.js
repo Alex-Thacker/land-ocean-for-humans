@@ -38,6 +38,7 @@ export default class PostPoolForm extends Component {
         return (
             <React.Fragment>
                 <h1>Post a Pool!</h1>
+                <p>You're making a difference</p>
                 <form onSubmit={this.handlePostPool}>
                     <label>Time During the Day they can Swim: </label>
                     <input type="text" onChange={this.handleChange} id="timeAvailable" />
@@ -48,7 +49,7 @@ export default class PostPoolForm extends Component {
                     <label>Date they can swim: </label>
                     <input type="date" onChange={this.handleChange} id="dateAvailable" />
                     <label>Any Other Details They Should Know?: </label>
-                    <input type="textarea" onChange={this.handleChange} id="description" />
+                    <textarea cols="35" rows="3" onChange={this.handleChange} id="description" />
                     <button type="submit">Save Pool</button>
                 </form>
             </React.Fragment>

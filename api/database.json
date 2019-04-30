@@ -9,6 +9,11 @@
       "id": 2,
       "userName": "test",
       "password": "test"
+    },
+    {
+      "id": 3,
+      "userName": "Goku",
+      "password": "goku"
     }
   ],
   "poolAds": [
@@ -16,7 +21,7 @@
       "id": 1,
       "userId": 1,
       "photoLink": "",
-      "timeAvailable": "5",
+      "timeAvailable": "10 pm",
       "cost": 10,
       "description": "no pets allowed",
       "location": "123 test lane",
@@ -41,25 +46,39 @@
       "description": "super test mode",
       "location": "555 devils lane",
       "dateAvailable": "1/29/19"
-    }
-  ],
-  "savedPools": [
-    {
-      "id": 1,
-      "userId": 1,
-      "poolAdId": 3
     },
     {
-      "id": 2,
-      "userId": 1,
-      "poolAdId": 2
+      "userId": 3,
+      "photoLink": "",
+      "timeAvailable": "3-6 pm",
+      "cost": "none",
+      "description": "have diving board, also have pet dog. he's a killer beast. watch out for my son gohan, he's killed before, he'll do it again",
+      "location": "123 nashville drive, nashville",
+      "dateAvailable": "2019-04-25",
+      "id": 4
     },
     {
-      "id": 3,
+      "userId": 3,
+      "photoLink": "",
+      "timeAvailable": "anytime",
+      "cost": "10",
+      "description": "no food allowed",
+      "location": "555 meow lane",
+      "dateAvailable": "4444-04-04",
+      "id": 5
+    },
+    {
       "userId": 2,
-      "poolAdId": 3
+      "photoLink": "",
+      "timeAvailable": "4 pm",
+      "cost": "10",
+      "description": "cat goes meow they say",
+      "location": "5555 eagle lane",
+      "dateAvailable": "0222-02-22",
+      "id": 6
     }
   ],
+  "savedPools": [],
   "savedGames": [
     {
       "id": 1,

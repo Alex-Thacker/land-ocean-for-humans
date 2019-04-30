@@ -4,6 +4,7 @@ export default class ViewMyPosts extends Component {
   render() {
     return (
       <React.Fragment>
+        <h1>Here's what you posted so far</h1>
         {
             this.props.poolAds.map(poolAd => 
                 <div key={poolAd.id}>

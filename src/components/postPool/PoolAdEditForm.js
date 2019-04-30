@@ -18,9 +18,23 @@ export default class PoolAdEditForm extends Component {
         this.setState(newState)
     }
 
-    // handlePutPoolAd = event => {
+    handlePutPoolAd = event => {
+        event.preventDefault()
 
-    // }
+        let object = {
+            id: this.props.match.params.poolAdId,
+            userId: Number(sessionStorage.getItem("valid")),
+            photoLink: "",
+            timeAvailable: this.state.timeAvailable,
+            cost: this.state.cost,
+            description: this.state.description,
+            location: this.state.location,
+            dateAvailable: this.state.dateAvailable
+        }
+
+        this.props.putPoolAd(object)
+        .then(() => this.props.history.push("/postpool/viewmyposts"))
+    }
 
     componentDidMount() {
         ResourceManager.getOnePoolAd(this.props.match.params.poolAdId)
@@ -38,9 +52,21 @@ export default class PoolAdEditForm extends Component {
 
     render() {
         return (
-            <div>
-                {this.state.timeAvailable}
-      </div>
+            <React.Fragment>
+                <form onSubmit={this.handlePutPoolAd}>
+                    <label>Time During the Day they can Swim: </label>
+                    <input type="text" onChange={this.handleChange} id="timeAvailable" value={this.state.timeAvailable} />
+                    <label>Entry Fee?: (Optional) </label>
+                    <input type="text" onChange={this.handleChange} id="cost" value={this.state.cost} />
+                    <label>Your location?: </label>
+                    <input type="text" onChange={this.handleChange} id="location" value={this.state.location} />
+                    <label>Date they can swim: </label>
+                    <input type="date" onChange={this.handleChange} id="dateAvailable" value={this.state.dateAvailable} />
+                    <label>Any Other Details They Should Know?: </label>
+                    <textarea onChange={this.handleChange} id="description" value={this.state.description} />
+                    <button type="submit">Save Changes</button>
+                </form>
+            </React.Fragment>
         )
     }
 }
