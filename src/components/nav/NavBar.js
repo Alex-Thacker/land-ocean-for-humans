@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "./navbar.css"
+import "../home/home.css"
 
 export default class NavBar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark navCss">
                 <ul className="nav nav-pills nav-fill">
                     <li className="nav-item">
                         <Link className="nav-link" to="/home">Home</Link>
@@ -19,8 +21,9 @@ export default class NavBar extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to="/mysaveditems">My Saved Items</Link>
                     </li>
+                    <li className="nav-item"><Link className="mr-1 nav-link" onClick={() => sessionStorage.clear()} to="/">Logout</Link>
+                    </li>
                 </ul>
-                {/* <Link className="mr-1" onClick={() => sessionStorage.clear()} to="/">Logout</Link> */}
             </nav>
         )
     }

@@ -1,0 +1,27 @@
+.homeCss{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.homeCss h1 {
+    color: #fff;
+    font-size: 50px;
+}
+
+.homeCss h3 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.homeCss p {
+    color: #fff;
+    font-size: 20px;
+}
+.hideAbout{
+    display: none;
+    color: #fff;
+    font-size: 50px;
+}
