@@ -1,3 +1,8 @@
 .navCss{
-    background-color: white;
+    background-color: #00a3cc;
+    color: #fff;
+}
+
+.nav-link{
+    color: #fff;
 }

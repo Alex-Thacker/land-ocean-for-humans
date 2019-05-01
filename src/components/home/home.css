@@ -19,6 +19,8 @@
 .homeCss p {
     color: #fff;
     font-size: 20px;
+    box-shadow: 10px 10px 5px grey;
+    background-color: #00a3cc;
 }
 .hideAbout{
     display: none;

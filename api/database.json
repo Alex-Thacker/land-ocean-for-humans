@@ -101,6 +101,26 @@
       "location": "ttttttt",
       "dateAvailable": "33333-03-31",
       "id": 8
+    },
+    {
+      "userId": 1,
+      "photoLink": "",
+      "timeAvailable": "",
+      "cost": "",
+      "description": "",
+      "location": "",
+      "dateAvailable": "",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "photoLink": "",
+      "timeAvailable": "",
+      "cost": "",
+      "description": "",
+      "location": "",
+      "dateAvailable": "",
+      "id": 10
     }
   ],
   "savedPools": [
@@ -111,8 +131,8 @@
     },
     {
       "userId": 1,
-      "poolAdId": 7,
-      "id": 2
+      "poolAdId": 4,
+      "id": 3
     }
   ],
   "savedGames": [

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import "./login.css"
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+// import {
+//     Card, CardImg, CardText, CardBody,
+//     CardTitle, CardSubtitle, Button
+// } from 'reactstrap';
 
 export default class Login extends Component {
     state = {

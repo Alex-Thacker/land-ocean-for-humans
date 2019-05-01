@@ -13,7 +13,10 @@ export default class NavBar extends Component {
                         <Link className="nav-link" to="/home">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/postpool">Post Pool</Link>
+                        <Link className="nav-link" to="/postpool/postpoolform">Post Pool</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/postpool/viewmyposts">View My Posts</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/findpool">Find Pool</Link>

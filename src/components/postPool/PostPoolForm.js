@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./postPool.css"
 
 export default class PostPoolForm extends Component {
     state = {
@@ -29,29 +30,44 @@ export default class PostPoolForm extends Component {
             location: this.state.location,
             dateAvailable: this.state.dateAvailable
         }
-        
+
         this.props.postPoolAd(object)
-        .then(() => this.props.history.push("/postpoolfinish"))
+            .then(() => this.props.history.push("/postpoolfinish"))
     }
 
     render() {
         return (
             <React.Fragment>
-                <h1>Post a Pool!</h1>
-                <p>You're making a difference</p>
-                <form onSubmit={this.handlePostPool}>
-                    <label>Time During the Day they can Swim: </label>
-                    <input type="text" onChange={this.handleChange} id="timeAvailable" />
-                    <label>Entry Fee?: (Optional) </label>
-                    <input type="text" onChange={this.handleChange} id="cost" />
-                    <label>Your location?: </label>
-                    <input type="text" onChange={this.handleChange} id="location" />
-                    <label>Date they can swim: </label>
-                    <input type="date" onChange={this.handleChange} id="dateAvailable" />
-                    <label>Any Other Details They Should Know?: </label>
-                    <textarea cols="35" rows="3" onChange={this.handleChange} id="description" />
-                    <button type="submit">Save Pool</button>
-                </form>
+                <div className="postPoolBackground">
+                    <h1>Post a Pool!</h1>
+                    <form onSubmit={this.handlePostPool}>
+                        <div className="form-row">
+                            <div className="form-group col-md-6">
+                                <label>Time During the Day they can Swim: </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="timeAvailable" />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label>Entry Fee?: (Optional) </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="cost" />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label>Your location?: </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="location" />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label>Date they can swim: </label>
+                                <input className="form-control textbox" type="date" onChange={this.handleChange} id="dateAvailable" />
+                            </div>
+                            <div className="form-group">
+                                <label>Any Other Details They Should Know?: </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="description" />
+                            </div>
+                            <div className="form-group">
+                                <button className="btn btn-primary" type="submit">Save Pool</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </React.Fragment>
         )
     }
