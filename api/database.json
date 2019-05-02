@@ -1,87 +1,143 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "userName": "alex",
-            "password": "alex"
-        },
-        {
-            "id": 2,
-            "userName": "test",
-            "password": "test"
-        }
-    ],
-    "poolAds": [
-        {
-            "id": 1,
-            "userId": 1,
-            "photoLink": "",
-            "timeAvailable": "5",
-            "cost": 10,
-            "description": "no pets allowed",
-            "location": "123 test lane",
-            "dateAvailable": "4/29/19"
-        },
-        {
-            "id": 2,
-            "userId": 2,
-            "photoLink": "",
-            "timeAvailable": "50",
-            "cost": 100,
-            "description": "pool is super deep",
-            "location": "90210 another address lane",
-            "dateAvailable": "3/19/19"
-        },
-        {
-            "id": 3,
-            "userId": 1,
-            "photoLink": "",
-            "timeAvailable": "522",
-            "cost": 0,
-            "description": "super test mode",
-            "location": "555 devils lane",
-            "dateAvailable": "1/29/19"
-        }
-    ],
-    "savedPools": [
-        {
-            "id": 1,
-            "userId": 1,
-            "poolAdId": 3
-        },
-        {
-            "id": 2,
-            "userId": 1,
-            "poolAdId": 2
-        },
-        {
-            "id": 3,
-            "userId": 2,
-            "poolAdId": 3
-        }
-    ],
-    "savedGames": [
-        {
-            "id": 1,
-            "userId": 1,
-            "poolGameId": 1
-        }
-    ],
-    "poolGames": [
-        {
-            "id": 1,
-            "description": "marco-polo",
-            "miniumPlayers": 2,
-            "requiredItems": "none",
-            "maxPlayers": "unlimited"
-        }
-    ],
-    "comments": [
-        {
-            "id": 1,
-            "userId": 1,
-            "poolAdId": 1,
-            "comment": "pool is dope"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "userName": "alex",
+      "password": "alex"
+    },
+    {
+      "id": 2,
+      "userName": "test",
+      "password": "test"
+    },
+    {
+      "id": 3,
+      "userName": "Goku",
+      "password": "goku"
+    },
+    {
+      "userName": "gohan",
+      "password": "gohan",
+      "id": 4
+    }
+  ],
+  "poolAds": [
+    {
+      "userId": 1,
+      "photoLink": "",
+      "timeAvailable": "anytime",
+      "cost": "",
+      "description": "no pets",
+      "location": "155 pool lane",
+      "dateAvailable": "any day",
+      "zipCode": "90210",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "photoLink": "",
+      "timeAvailable": "1pm - 10 pm",
+      "cost": "45",
+      "description": "pool is like super deep",
+      "location": "555 moo moo lane",
+      "dateAvailable": "weekends",
+      "zipCode": "37146",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "photoLink": "",
+      "timeAvailable": "Noon-7pm",
+      "cost": "no",
+      "description": "capacity = 10",
+      "location": "111 mydrive drive",
+      "dateAvailable": "friday-saturday",
+      "zipCode": "37909",
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "photoLink": "",
+      "timeAvailable": "10 pm - 4 am",
+      "cost": "22",
+      "description": "dog is nice, but not really",
+      "location": "444 eagle drive",
+      "dateAvailable": "Monday-wednesday",
+      "zipCode": "90210",
+      "id": 5
+    },
+    {
+      "userId": 4,
+      "photoLink": "",
+      "timeAvailable": "10 pm",
+      "cost": "3333333",
+      "description": "friends only",
+      "location": "123 test lane",
+      "dateAvailable": "Monday-Tuesday",
+      "zipCode": "37909",
+      "id": 7
+    },
+    {
+      "userId": 4,
+      "photoLink": "",
+      "timeAvailable": "anytime",
+      "cost": "",
+      "description": "you have to bring food. you have to feed me or i won't let you in. donations are cool. don't pet my dog, he's a killer, pool has no diving board. pool has no water. dont make me mad, i'm crazy",
+      "location": "123 meeeeoowwwwza lane",
+      "dateAvailable": "any day",
+      "zipCode": "37146",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "userId": 3,
+      "photoLink": "",
+      "timeAvailable": "10 pm",
+      "cost": "10",
+      "description": "i'll go super saiyan for ten bucks",
+      "location": "123 test lane",
+      "dateAvailable": "Monday-Tuesday",
+      "zipCode": "90210"
+    },
+    {
+      "userId": 3,
+      "photoLink": "",
+      "timeAvailable": "zipcode test",
+      "cost": "0",
+      "description": "0",
+      "location": "zipcode test",
+      "dateAvailable": "zipcode test",
+      "zipCode": "",
+      "id": 10
+    }
+  ],
+  "savedPools": [
+    {
+      "userId": 4,
+      "poolAdId": 2,
+      "id": 1
+    },
+    {
+      "userId": 4,
+      "poolAdId": 9,
+      "id": 6
+    }
+  ],
+  "savedGames": [
+    {
+      "id": 1,
+      "userId": 1,
+      "poolGameId": 1
+    }
+  ],
+  "poolGames": [
+    {
+      "id": 1,
+      "description": "marco-polo",
+      "miniumPlayers": 2,
+      "requiredItems": "none",
+      "maxPlayers": "unlimited"
+    }
+  ],
+  "comments": []
 }
