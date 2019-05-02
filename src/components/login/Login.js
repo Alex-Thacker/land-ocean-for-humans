@@ -25,7 +25,6 @@ export default class Login extends Component {
         })
 
         if (testLogin) {
-            console.log(testLogin)
             // let id = this.props.users.map(user => user.id)
             sessionStorage.setItem("valid", testLogin.id)
             this.props.onLogin()

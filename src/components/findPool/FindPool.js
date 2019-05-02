@@ -1,41 +1,60 @@
 import React, { Component } from 'react'
+import "./findPool.css"
 
 export default class FindPool extends Component {
+  state = {
+    zipCode: ""
+  }
 
-    handlePostPool = (poolAdId) => {
-        let object = {
-            userId: Number(sessionStorage.getItem("valid")),
-            poolAdId: poolAdId
-        }
+  handleChange = event => {
+    let newState = {}
+    newState[event.target.id] = event.target.value
+    this.setState(newState)
+  }
 
-        this.props.postSavedPool(object)
+  handlePostPool = (poolAdId) => {
+    let object = {
+      userId: Number(sessionStorage.getItem("valid")),
+      poolAdId: poolAdId
     }
+
+    this.props.postSavedPool(object)
+  }
   render() {
-      //creates an array with filter data. this compares poolAdId's with the Id from poolAds resource. this allows the user to only see pools that are not saved under user and also doesn't show pools that the user created
-      let savedPoolsIdArray = this.props.savedPools.map(savedPool => savedPool.poolAdId)
-      let findPoolsFiltered = this.props.findPools.filter(findPool => !savedPoolsIdArray.includes(findPool.id))
+    //creates an array with filter data. this compares poolAdId's with the Id from poolAds resource. this allows the user to only see pools that are not saved under user and also doesn't show pools that the user created
+    let savedPoolsIdArray = this.props.savedPools.map(savedPool => savedPool.poolAdId)
+    let findPoolsFiltered = this.props.findPools.filter(findPool => !savedPoolsIdArray.includes(findPool.id) && findPool.zipCode.includes(this.state.zipCode))
     return (
       <React.Fragment>
-          <h1>Here are pools you can swim in!</h1>
-        {
-            findPoolsFiltered.map(findPool => 
-                <div key={findPool.id}>
-                    <p>{findPool.id}</p>
-                    <p><strong>Time Available: </strong>{findPool.timeAvailable}</p>
-                    <p><strong>Cost: </strong>{findPool.cost}</p>
-                    <p><strong>Description: </strong>{findPool.description}</p>
-                    <p><strong>Location: </strong>{findPool.location}</p>
-                    <p><strong>Date Available: </strong>{findPool.dateAvailable}</p>
-                    <div>
+        <h1 className="viewMyPostH1">Find a pool that fits you</h1>
+        <div className="zipCodeDiv">
+          <label>Filter by Zipcode: </label>
+          <input onChange={this.handleChange} id="zipCode" type="text" placeholder="Enter Zipcode Here" />
+          {/* <button className="btn btn-primary searchCss">Search</button> */}
+        </div>
+        <div className="flexContainer">
+          {
+            findPoolsFiltered.map(findPool =>
+              <div className="card cardCss" key={findPool.id}>
+                <div className="card-body">
+                  <p className="card-text"><strong>Time Available: </strong>{findPool.timeAvailable}</p>
+                  <p className="card-text"><strong>Day(s) Available: </strong>{findPool.dateAvailable}</p>
+                  <p className="card-text"><strong>Location: </strong>{findPool.location}</p>
+                  <p className="card-text"><strong>Zipcode: </strong>{findPool.zipCode}</p>
+                  <p className="card-text"><strong>Cost: $ </strong>{findPool.cost}</p>
+                  <p className="card-text"><strong>Description: </strong>{findPool.description}</p>
+                  <div>
                     <strong>Created By: {" "}</strong>
                     {this.props.users.find(user =>
-                        user.id === findPool.userId).userName}
-                        </div>
-                        <button onClick={() => this.handlePostPool(findPool.id)}>Save Pool</button>
-                    <hr></hr>
+                      user.id === findPool.userId).userName}
+                  </div>
+                  <hr></hr>
+                  <button className="btn btn-primary" onClick={() => this.handlePostPool(findPool.id)}>Save Pool</button>
                 </div>
-                )
-        }
+              </div>
+            )
+          }
+        </div>
       </React.Fragment>
     )
   }

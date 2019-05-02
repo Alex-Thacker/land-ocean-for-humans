@@ -1,15 +1,26 @@
 .postPoolBackground{
-    background-color: lightgrey;
+    background-color: rgba(211, 211, 211, .5);
     height: 1000px;
     margin-top: 0;
     padding: 20px;
 }
 
+.postPoolBackground h1 {
+    color: white;
+    width: 600px;
+    font-size: 40px;
+    border-bottom: 6px solid #4caf50;
+    margin-bottom: 50px; 
+    padding: 13px 0;
+}
+
 .cardCss{
     width: 35rem;
-    background-color: lightgrey;
+    background-color: rgba(211, 211, 211, .8);
     padding: 20px;
     margin-top: 20px;
+    font-size: 18px;
+    border-radius: 20px;
 }
 
 .flexContainer{
@@ -18,4 +29,18 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.viewMyPostH1{
+    color: white;
+    width: 600px;
+    font-size: 40px;
+    border-bottom: 6px solid #4caf50;
+    margin-bottom: 50px; 
+    padding: 13px 0;
+    margin-left: 25px;
+}
+
+.postPoolFinish{
+    margin-left: 50px;
 }

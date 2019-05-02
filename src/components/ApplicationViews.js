@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import ResourceManager from "../ResourceManager"
 import Login from "./login/Login"
 import Home from "./home/Home"
-import PostPool from "./postPool/PostPool"
+// import PostPool from "./postPool/PostPool"
 import PostPoolForm from "./postPool/PostPoolForm"
 import PostPoolFinish from "./postPool/PostPoolFinish"
 import ViewMyPosts from "./postPool/ViewMyPosts"
@@ -120,21 +120,29 @@ export default class ApplicationViews extends Component {
                         return <Redirect to="/" />
                     }
                 }} />
-                <Route exact path="/postpool" render={(props) => {
+                {/* <Route exact path="/postpool" render={(props) => {
                     if(this.isValid()){
                         return <PostPool {...props} />
                     } else {
                         return <Redirect to="/" />
                     }
-                }} />
+                }} /> */}
                 <Route exact path="/postpool/postpoolform" render={(props) => {
-                    return <PostPoolForm {...props} postPoolAd={this.postPoolAd} />
+                    if (this.isValid()) {
+                        return <PostPoolForm {...props} postPoolAd={this.postPoolAd} />
+                    } else {
+                        return <Redirect to="/" />
+                    }
                 }} />
                 <Route exact path="/postpoolfinish" render={(props) => {
                     return <PostPoolFinish {...props} />
                 }} />
                 <Route exact path="/postpool/viewmyposts" render={(props) => {
-                    return <ViewMyPosts {...props} poolAds={this.state.poolAds} deletePoolAd={this.deletePoolAd} />
+                    if (this.isValid()) {
+                        return <ViewMyPosts {...props} poolAds={this.state.poolAds} deletePoolAd={this.deletePoolAd} />
+                    } else {
+                        return <Redirect to="/" />
+                    }
                 }} />
                 <Route exact path="/viewmyposts/editpost/:poolAdId(\d+)" render={(props) => {
                     return <PoolAdEditForm putPoolAd={this.putPoolAd} {...props} />

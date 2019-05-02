@@ -23,116 +23,104 @@
   ],
   "poolAds": [
     {
-      "id": 1,
       "userId": 1,
       "photoLink": "",
-      "timeAvailable": "9 pm",
-      "cost": 10,
-      "description": "no pets allowed!!!",
-      "location": "123 test lane",
-      "dateAvailable": "4/29/19"
+      "timeAvailable": "anytime",
+      "cost": "",
+      "description": "no pets",
+      "location": "155 pool lane",
+      "dateAvailable": "any day",
+      "zipCode": "90210",
+      "id": 2
     },
     {
-      "id": 2,
+      "userId": 1,
+      "photoLink": "",
+      "timeAvailable": "1pm - 10 pm",
+      "cost": "45",
+      "description": "pool is like super deep",
+      "location": "555 moo moo lane",
+      "dateAvailable": "weekends",
+      "zipCode": "37146",
+      "id": 3
+    },
+    {
       "userId": 2,
       "photoLink": "",
-      "timeAvailable": "50",
-      "cost": 100,
-      "description": "pool is super deep",
-      "location": "90210 another address lane",
-      "dateAvailable": "3/19/19"
-    },
-    {
-      "id": 3,
-      "userId": 1,
-      "photoLink": "",
-      "timeAvailable": "522",
-      "cost": 0,
-      "description": "super test mode",
-      "location": "555 devils lane",
-      "dateAvailable": "1/29/19"
-    },
-    {
-      "userId": 3,
-      "photoLink": "",
-      "timeAvailable": "3-6 pm",
-      "cost": "none",
-      "description": "have diving board, also have pet dog. he's a killer beast. watch out for my son gohan, he's killed before, he'll do it again",
-      "location": "123 nashville drive, nashville",
-      "dateAvailable": "2019-04-25",
+      "timeAvailable": "Noon-7pm",
+      "cost": "no",
+      "description": "capacity = 10",
+      "location": "111 mydrive drive",
+      "dateAvailable": "friday-saturday",
+      "zipCode": "37909",
       "id": 4
     },
     {
-      "userId": 3,
-      "photoLink": "",
-      "timeAvailable": "anytime",
-      "cost": "10",
-      "description": "no food allowed",
-      "location": "555 meow lane",
-      "dateAvailable": "4444-04-04",
-      "id": 5
-    },
-    {
       "userId": 2,
       "photoLink": "",
-      "timeAvailable": "4 pm",
-      "cost": "10",
-      "description": "cat goes meow they say",
-      "location": "5555 eagle lane",
-      "dateAvailable": "0222-02-22",
-      "id": 6
+      "timeAvailable": "10 pm - 4 am",
+      "cost": "22",
+      "description": "dog is nice, but not really",
+      "location": "444 eagle drive",
+      "dateAvailable": "Monday-wednesday",
+      "zipCode": "90210",
+      "id": 5
     },
     {
       "userId": 4,
       "photoLink": "",
-      "timeAvailable": "gohans",
-      "cost": "first",
-      "description": "for a pool",
-      "location": "post",
-      "dateAvailable": "2222-02-22",
+      "timeAvailable": "10 pm",
+      "cost": "3333333",
+      "description": "friends only",
+      "location": "123 test lane",
+      "dateAvailable": "Monday-Tuesday",
+      "zipCode": "37909",
       "id": 7
     },
     {
-      "userId": 1,
+      "userId": 4,
       "photoLink": "",
-      "timeAvailable": "another test",
-      "cost": "another test",
-      "description": "doing yet another test",
-      "location": "ttttttt",
-      "dateAvailable": "33333-03-31",
+      "timeAvailable": "anytime",
+      "cost": "",
+      "description": "you have to bring food. you have to feed me or i won't let you in. donations are cool. don't pet my dog, he's a killer, pool has no diving board. pool has no water. dont make me mad, i'm crazy",
+      "location": "123 meeeeoowwwwza lane",
+      "dateAvailable": "any day",
+      "zipCode": "37146",
       "id": 8
     },
     {
-      "userId": 1,
+      "id": 9,
+      "userId": 3,
       "photoLink": "",
-      "timeAvailable": "",
-      "cost": "",
-      "description": "",
-      "location": "",
-      "dateAvailable": "",
-      "id": 9
+      "timeAvailable": "10 pm",
+      "cost": "10",
+      "description": "i'll go super saiyan for ten bucks",
+      "location": "123 test lane",
+      "dateAvailable": "Monday-Tuesday",
+      "zipCode": "90210"
     },
     {
-      "userId": 1,
+      "userId": 3,
       "photoLink": "",
-      "timeAvailable": "",
-      "cost": "",
-      "description": "",
-      "location": "",
-      "dateAvailable": "",
+      "timeAvailable": "zipcode test",
+      "cost": "0",
+      "description": "0",
+      "location": "zipcode test",
+      "dateAvailable": "zipcode test",
+      "zipCode": "",
       "id": 10
     }
   ],
   "savedPools": [
     {
-      "userId": 1,
+      "userId": 4,
       "poolAdId": 2,
       "id": 1
     },
     {
-      "userId": 1,
-      "poolAdId": 4,
-      "id": 3
+      "userId": 4,
+      "poolAdId": 9,
+      "id": 6
     }
   ],
   "savedGames": [
@@ -151,12 +139,5 @@
       "maxPlayers": "unlimited"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "userId": 1,
-      "poolAdId": 1,
-      "comment": "pool is dope"
-    }
-  ]
+  "comments": []
 }

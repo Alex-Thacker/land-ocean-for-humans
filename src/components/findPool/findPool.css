@@ -1,0 +1,16 @@
+.searchCss{
+    margin-left: 3px;
+}
+
+.zipCodeDiv{
+    margin-left: 20px;
+}
+
+.zipCodeDiv label {
+    font-size: 20px;
+    border-bottom: 6px solid #4caf50;
+}
+
+.zipCodeDiv input {
+    margin-left: 10px;
+}

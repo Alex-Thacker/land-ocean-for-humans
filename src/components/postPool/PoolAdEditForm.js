@@ -9,7 +9,8 @@ export default class PoolAdEditForm extends Component {
         cost: "",
         description: "",
         location: "",
-        dateAvailable: ""
+        dateAvailable: "",
+        zipCode: ""
     }
 
     handleChange = event => {
@@ -29,11 +30,12 @@ export default class PoolAdEditForm extends Component {
             cost: this.state.cost,
             description: this.state.description,
             location: this.state.location,
-            dateAvailable: this.state.dateAvailable
+            dateAvailable: this.state.dateAvailable,
+            zipCode: this.state.zipCode
         }
 
         this.props.putPoolAd(object)
-        .then(() => this.props.history.push("/postpool/viewmyposts"))
+            .then(() => this.props.history.push("/postpool/viewmyposts"))
     }
 
     componentDidMount() {
@@ -45,7 +47,8 @@ export default class PoolAdEditForm extends Component {
                     cost: r.cost,
                     description: r.description,
                     location: r.location,
-                    dateAvailable: r.dateAvailable
+                    dateAvailable: r.dateAvailable,
+                    zipCode: r.zipCode
                 })
             })
     }
@@ -53,19 +56,38 @@ export default class PoolAdEditForm extends Component {
     render() {
         return (
             <React.Fragment>
-                <form onSubmit={this.handlePutPoolAd}>
-                    <label>Time During the Day they can Swim: </label>
-                    <input type="text" onChange={this.handleChange} id="timeAvailable" value={this.state.timeAvailable} />
-                    <label>Entry Fee?: (Optional) </label>
-                    <input type="text" onChange={this.handleChange} id="cost" value={this.state.cost} />
-                    <label>Your location?: </label>
-                    <input type="text" onChange={this.handleChange} id="location" value={this.state.location} />
-                    <label>Date they can swim: </label>
-                    <input type="date" onChange={this.handleChange} id="dateAvailable" value={this.state.dateAvailable} />
-                    <label>Any Other Details They Should Know?: </label>
-                    <textarea onChange={this.handleChange} id="description" value={this.state.description} />
-                    <button type="submit">Save Changes</button>
-                </form>
+                <div className="postPoolBackground">
+                    <h1>Edit your post</h1>
+                    <form onSubmit={this.handlePutPoolAd}>
+                        <div className="form-row">
+                            <div className="form-group col-md-6">
+                                <label>Time During the Day they can Swim: </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="timeAvailable" value={this.state.timeAvailable} />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label>What day(s) are you open?: </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="dateAvailable" value={this.state.dateAvailable} />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label>Your location?: </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="location" value={this.state.location} />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label>Your zipcode?: </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="zipCode" value={this.state.zipCode} />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label>Entry Fee?: (Optional) </label>
+                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="cost" value={this.state.cost} />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label>Any Other Details They Should Know?: </label>
+                                <input className="form-control textbox" onChange={this.handleChange} id="description" value={this.state.description} />
+                            </div>
+                            <button className="btn btn-primary" type="submit">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
             </React.Fragment>
         )
     }
