@@ -3,6 +3,7 @@ export default {
     getUsers() {
         return fetch("http://localhost:5002/users").then(r => r.json())
     },
+    //used to post a new object under users resource
     postUsers(object) {
         return fetch("http://localhost:5002/users", {
             method: "POST",
@@ -64,6 +65,7 @@ export default {
             body: JSON.stringify(object)
         }).then(e => e.json())
     },
+    //used to delete a poolAd from saved pools component
     deleteSavedPool(id) {
         return fetch(`http://localhost:5002/savedPools/${id}`, {
             method: "DELETE"

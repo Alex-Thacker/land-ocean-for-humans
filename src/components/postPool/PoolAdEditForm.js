@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ResourceManager from "../../ResourceManager"
 
 export default class PoolAdEditForm extends Component {
+    //define state for data to be passed into
     state = {
         userId: "",
         photoLink: "",
@@ -13,12 +14,14 @@ export default class PoolAdEditForm extends Component {
         zipCode: ""
     }
 
+    //function is called on input fields to update state as user types in a field. event.target.id is the same as the key of state that we want to update as user types. event.target.value is what the user actually types and this.setState will alter state as user types
     handleChange = event => {
         let newState = {}
         newState[event.target.id] = event.target.value
         this.setState(newState)
     }
 
+    //preventDefault will stop page from refreshing. create object to be passed into putPoolAd function. uses state, which changes based on when the user types. use history.push to take user to path we want after user clicks submit button. 
     handlePutPoolAd = event => {
         event.preventDefault()
 
@@ -38,6 +41,7 @@ export default class PoolAdEditForm extends Component {
             .then(() => this.props.history.push("/postpool/viewmyposts"))
     }
 
+    //use componentDidMount to get data so we can pre fill the input fields with the current data. we pass the data from fetch call into state and state is used in the value fields within the input tags. 
     componentDidMount() {
         ResourceManager.getOnePoolAd(this.props.match.params.poolAdId)
             .then(r => {
@@ -92,12 +96,3 @@ export default class PoolAdEditForm extends Component {
         )
     }
 }
-
-// "id": 3,
-// "userId": 1,
-// "photoLink": "",
-// "timeAvailable": "522",
-// "cost": 0,
-// "description": "super test mode",
-// "location": "555 devils lane",
-// "dateAvailable": "1/29/19"

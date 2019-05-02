@@ -34,6 +34,7 @@
       "id": 2
     },
     {
+      "id": 3,
       "userId": 1,
       "photoLink": "",
       "timeAvailable": "1pm - 10 pm",
@@ -41,8 +42,7 @@
       "description": "pool is like super deep",
       "location": "555 moo moo lane",
       "dateAvailable": "weekends",
-      "zipCode": "37146",
-      "id": 3
+      "zipCode": "37146"
     },
     {
       "userId": 2,
@@ -109,6 +109,17 @@
       "dateAvailable": "zipcode test",
       "zipCode": "",
       "id": 10
+    },
+    {
+      "userId": 1,
+      "photoLink": "",
+      "timeAvailable": "",
+      "cost": "",
+      "description": "",
+      "location": "",
+      "dateAvailable": "",
+      "zipCode": "",
+      "id": 11
     }
   ],
   "savedPools": [
@@ -121,6 +132,11 @@
       "userId": 4,
       "poolAdId": 9,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "poolAdId": 5,
+      "id": 7
     }
   ],
   "savedGames": [

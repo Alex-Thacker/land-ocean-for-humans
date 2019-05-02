@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./postPool.css"
 
 export default class PostPoolForm extends Component {
+    //define state for data to be passed through it
     state = {
         userId: "",
         photoLink: "",
@@ -13,12 +14,14 @@ export default class PostPoolForm extends Component {
         zipCode: ""
     }
 
+    //function is called on input fields to update state as user types in a field. event.target.id is the same as the key of state that we want to update as user types. event.target.value is what the user actually types and this.setState will alter state as user types
     handleChange = event => {
         let newState = {}
         newState[event.target.id] = event.target.value
         this.setState(newState)
     }
 
+    //function is called when user clicks submit button. event.preventDefault to stop button from refreshing page. creates object to be passed into postPoolAd function. then uses props.history to take the user to the path we want. 
     handlePostPool = event => {
         event.preventDefault()
 
@@ -40,6 +43,7 @@ export default class PostPoolForm extends Component {
     render() {
         return (
             <React.Fragment>
+                {/* basic jsx form. id's of input fields math the key values of state so we know which key of state we want to alter.  */}
                 <div className="postPoolBackground">
                     <h1>Post a Pool!</h1>
                     <form onSubmit={this.handlePostPool}>

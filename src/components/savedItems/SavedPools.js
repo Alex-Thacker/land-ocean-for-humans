@@ -6,6 +6,7 @@ export default class SavedPools extends Component {
       <React.Fragment>
         <h1 className="viewMyPostH1">Pools you've saved</h1>
         <div className="flexContainer">
+        {/* map is needed to iterate through the array of savedPools. after that, we use the data where we want it to be displayed.  Bootstrap classes are added for styling.  */}
         {
           this.props.savedPools.map(savedPool =>
             <div className="card cardCss" key={savedPool.id}>
@@ -16,6 +17,7 @@ export default class SavedPools extends Component {
               <p><strong>Zipcode: </strong>{savedPool.poolAd.zipCode}</p>
               <p><strong>Cost: $ </strong>{savedPool.poolAd.cost}</p>
               <p><strong>Description: </strong>{savedPool.poolAd.description}</p>
+              {/* use a find method to see which user created the poolAd and then display their userName */}
               <div>
                 <strong>Created By: {" "}</strong>
                 {this.props.users.find(user =>
@@ -32,13 +34,3 @@ export default class SavedPools extends Component {
     )
   }
 }
-
-
-// "id": 1,
-// "userId": 1,
-// "photoLink": "",
-// "timeAvailable": "10 pm",
-// "cost": 10,
-// "description": "no pets allowed",
-// "location": "123 test lane",
-// "dateAvailable": "4/29/19"

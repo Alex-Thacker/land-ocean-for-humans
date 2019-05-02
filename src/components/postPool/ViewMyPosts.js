@@ -6,8 +6,10 @@ export default class ViewMyPosts extends Component {
     return (
       <React.Fragment>
         <h1 className="viewMyPostH1">Here's what you posted so far</h1>
+        {/* div for flexContainer is needed to style the cards to display in a way i want them to.  */}
         <div className="flexContainer">
         {
+          // iterates through poolAds array to build jsx
             this.props.poolAds.map(poolAd => 
                 <div className="card cardCss" key={poolAd.id}>
                 <div className="card-body">

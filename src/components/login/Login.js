@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 import "./login.css"
-// import {
-//     Card, CardImg, CardText, CardBody,
-//     CardTitle, CardSubtitle, Button
-// } from 'reactstrap';
 
 export default class Login extends Component {
     state = {
@@ -11,12 +7,14 @@ export default class Login extends Component {
         password: ""
     }
 
+    //function is called on input fields to update state as user types in a field. event.target.id is the same as the key of state that we want to update as user types. event.target.value is what the user actually types and this.setState will alter state as user types
     handleChange = event => {
         let newState = {}
         newState[event.target.id] = event.target.value
         this.setState(newState)
     }
 
+    //create variable testLogin to match userName and password with user information from json file. if information matches, then sets sessionstorage with userId, then runs function onLogin to fetch all data based on userId and then redirect user to home screen. if untrue, user gets an alert
     handleLogin = event => {
         event.preventDefault()
 

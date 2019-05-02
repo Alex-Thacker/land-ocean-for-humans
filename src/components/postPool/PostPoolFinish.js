@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export default class PostPoolFinish extends Component {
+  //basic page with some jsx. contains two buttons to take user to two different paths
   render() {
     return (
       <React.Fragment>
