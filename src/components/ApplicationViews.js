@@ -24,6 +24,7 @@ export default class ApplicationViews extends Component {
         comments: []
     }
 
+
     //runs function to perform all fetch calls. doing it here allows the user to get their specific data if they refresh the page.  when user opens page at first, this will bring back no data, but all fetch calls are based on userId, which isn't obtained until after they log in
     componentDidMount() {
         this.loadAllData()
@@ -140,7 +141,7 @@ export default class ApplicationViews extends Component {
                 {/* postPoolForm uses postPoolAd function. from this screen user fills out a form and when clicks save, runs the function to post the poolAd into the json file */}
                 <Route exact path="/postpool/postpoolform" render={(props) => {
                     if (this.isValid()) {
-                        return <PostPoolForm {...props} postPoolAd={this.postPoolAd} />
+                        return <PostPoolForm {...props} postPoolAd={this.postPoolAd} /> 
                     } else {
                         return <Redirect to="/" />
                     }

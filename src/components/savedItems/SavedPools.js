@@ -11,6 +11,7 @@ export default class SavedPools extends Component {
           this.props.savedPools.map(savedPool =>
             <div className="card cardCss" key={savedPool.id}>
             <div className="card-body">
+            <img className="card-img-top" src={savedPool.poolAd.url} />
               <p><strong>Time Available: </strong>{savedPool.poolAd.timeAvailable}</p>
               <p><strong>Day(s) Available: </strong>{savedPool.poolAd.dateAvailable}</p>
               <p><strong>Location: </strong>{savedPool.poolAd.location}</p>

@@ -40,6 +40,7 @@ export default class FindPool extends Component {
             findPoolsFiltered.map(findPool =>
               <div className="card cardCss" key={findPool.id}>
                 <div className="card-body">
+                <img className="card-img-top" src={findPool.url} />
                   <p className="card-text"><strong>Time Available: </strong>{findPool.timeAvailable}</p>
                   <p className="card-text"><strong>Day(s) Available: </strong>{findPool.dateAvailable}</p>
                   <p className="card-text"><strong>Location: </strong>{findPool.location}</p>

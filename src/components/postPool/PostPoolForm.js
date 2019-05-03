@@ -1,17 +1,56 @@
 import React, { Component } from 'react'
 import "./postPool.css"
+import { storage } from "../firebaseConfig/Firebase"
 
 export default class PostPoolForm extends Component {
     //define state for data to be passed through it
     state = {
         userId: "",
         photoLink: "",
+        url: "",
         timeAvailable: "",
         cost: "",
         description: "",
         location: "",
         dateAvailable: "",
-        zipCode: ""
+        zipCode: "",
+        loadMin: "",
+        loadMax: ""
+    }
+
+    handlePhoto = event => {
+        if (event.target.files[0]) {
+            const image = event.target.files[0]
+            this.setState({
+                photoLink: image
+            })
+        }
+    }
+
+    handleUpload = () => {
+        const image = this.state.photoLink
+        const uploadTask = storage.ref(`images/${image.name}`).put(image)
+        uploadTask.on("state_changed",
+            (snapshot) => {
+                console.log(snapshot.bytesTransferred)
+                console.log(snapshot.totalBytes)
+                this.setState({
+                    loadMin: snapshot.bytesTransferred,
+                    loadMax: snapshot.totalBytes
+                })
+            },
+            (error) => {
+                console.log(error)
+            },
+            () => {
+                storage.ref('images').child(image.name).getDownloadURL().then(url => {
+                    console.log(url)
+                    this.setState({ url })
+                })
+            }
+        )
+
+
     }
 
     //function is called on input fields to update state as user types in a field. event.target.id is the same as the key of state that we want to update as user types. event.target.value is what the user actually types and this.setState will alter state as user types
@@ -27,7 +66,7 @@ export default class PostPoolForm extends Component {
 
         let object = {
             userId: Number(sessionStorage.getItem("valid")),
-            photoLink: "",
+            url: this.state.url,
             timeAvailable: this.state.timeAvailable,
             cost: this.state.cost,
             description: this.state.description,
@@ -40,13 +79,26 @@ export default class PostPoolForm extends Component {
             .then(() => this.props.history.push("/postpoolfinish"))
     }
 
+    handleImg = () => {
+        if(this.state.url !== ""){
+            return <img className="previewImg" src={this.state.url}/>
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
                 {/* basic jsx form. id's of input fields math the key values of state so we know which key of state we want to alter.  */}
                 <div className="postPoolBackground">
                     <h1>Post a Pool!</h1>
-                    <form onSubmit={this.handlePostPool}>
+                    <label className="progressLabel">Progress: </label>
+                    <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
+                            <input type="file" onChange={this.handlePhoto} id="photoLink" />
+                            <div>
+                            <button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Save image</button>
+                            </div>
+                            {this.handleImg()}
+                    <form className="postPoolForm" onSubmit={this.handlePostPool}>
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label>Time During the Day they can Swim: </label>

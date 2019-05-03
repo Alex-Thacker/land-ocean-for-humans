@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ResourceManager from "../../ResourceManager"
+import { storage } from "../firebaseConfig/Firebase"
 
 export default class PoolAdEditForm extends Component {
     //define state for data to be passed into
@@ -11,7 +12,52 @@ export default class PoolAdEditForm extends Component {
         description: "",
         location: "",
         dateAvailable: "",
-        zipCode: ""
+        zipCode: "",
+        photoLink: "",
+        url: "",
+        loadMax: "",
+        loadMin: ""
+    }
+
+    handlePhoto = event => {
+        if (event.target.files[0]) {
+            const image = event.target.files[0]
+            this.setState({
+                photoLink: image
+            })
+        }
+    }
+
+    handleUpload = () => {
+        const image = this.state.photoLink
+        const uploadTask = storage.ref(`images/${image.name}`).put(image)
+        uploadTask.on("state_changed",
+            (snapshot) => {
+                console.log(snapshot.bytesTransferred)
+                console.log(snapshot.totalBytes)
+                this.setState({
+                    loadMin: snapshot.bytesTransferred,
+                    loadMax: snapshot.totalBytes
+                })
+            },
+            (error) => {
+                console.log(error)
+            },
+            () => {
+                storage.ref('images').child(image.name).getDownloadURL().then(url => {
+                    console.log(url)
+                    this.setState({ url })
+                })
+            }
+        )
+
+
+    }
+
+    handleImg = () => {
+        if(this.state.url !== ""){
+            return <img className="previewImg" src={this.state.url}/>
+        }
     }
 
     //function is called on input fields to update state as user types in a field. event.target.id is the same as the key of state that we want to update as user types. event.target.value is what the user actually types and this.setState will alter state as user types
@@ -34,7 +80,8 @@ export default class PoolAdEditForm extends Component {
             description: this.state.description,
             location: this.state.location,
             dateAvailable: this.state.dateAvailable,
-            zipCode: this.state.zipCode
+            zipCode: this.state.zipCode,
+            url: this.state.url
         }
 
         this.props.putPoolAd(object)
@@ -52,7 +99,8 @@ export default class PoolAdEditForm extends Component {
                     description: r.description,
                     location: r.location,
                     dateAvailable: r.dateAvailable,
-                    zipCode: r.zipCode
+                    zipCode: r.zipCode,
+                    url: r.url
                 })
             })
     }
@@ -62,7 +110,14 @@ export default class PoolAdEditForm extends Component {
             <React.Fragment>
                 <div className="postPoolBackground">
                     <h1>Edit your post</h1>
-                    <form onSubmit={this.handlePutPoolAd}>
+                    <label className="progressLabel">Progress: </label>
+                    <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
+                            <input type="file" onChange={this.handlePhoto} id="photoLink" />
+                            <div>
+                            <button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Save image</button>
+                            </div>
+                            {this.handleImg()}
+                    <form className="postPoolForm" onSubmit={this.handlePutPoolAd}>
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label>Time During the Day they can Swim: </label>

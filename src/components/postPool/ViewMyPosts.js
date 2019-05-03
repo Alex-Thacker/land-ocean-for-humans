@@ -13,6 +13,7 @@ export default class ViewMyPosts extends Component {
             this.props.poolAds.map(poolAd => 
                 <div className="card cardCss" key={poolAd.id}>
                 <div className="card-body">
+                    <img className="card-img-top" src={poolAd.url} />
                     <p className="card-text"><strong>Time Available: </strong>{poolAd.timeAvailable}</p>
                     <p className="card-text"><strong>Day(s) Available: </strong>{poolAd.dateAvailable}</p>
                     <p className="card-text"><strong>Location: </strong>{poolAd.location}</p>
