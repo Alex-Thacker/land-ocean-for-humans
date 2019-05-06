@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "./navbar.css"
 import "../home/home.css"
 
+//basic nav bar to help user get where he wants
 export default class NavBar extends Component {
     render() {
         return (

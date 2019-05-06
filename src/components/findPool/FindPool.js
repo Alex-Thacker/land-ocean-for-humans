@@ -2,16 +2,19 @@ import React, { Component } from 'react'
 import "./findPool.css"
 
 export default class FindPool extends Component {
+  //state zipCode is needed to filter results by zipCode
   state = {
     zipCode: ""
   }
 
+  //function is called on input fields to update state as user types in a field. event.target.id is the same as the key of state that we want to update as user types. event.target.value is what the user actually types and this.setState will alter state as user types
   handleChange = event => {
     let newState = {}
     newState[event.target.id] = event.target.value
     this.setState(newState)
   }
 
+  //this will allow user to save a poolAd into his saved items section of the app
   handlePostPool = (poolAdId) => {
     let object = {
       userId: Number(sessionStorage.getItem("valid")),
@@ -21,7 +24,7 @@ export default class FindPool extends Component {
     this.props.postSavedPool(object)
   }
   render() {
-    //creates an array with filter data. this compares poolAdId's with the Id from poolAds resource. this allows the user to only see pools that are not saved under user and also doesn't show pools that the user created
+    //creates an array with filter data. this compares poolAdId's with the Id from poolAds resource. this allows the user to only see pools that are not saved under user and also doesn't show pools that the user created.  also compares the zipCode that the user types into an input field with the zipCode in the json file. this provides further filter options for the user. 
     let savedPoolsIdArray = this.props.savedPools.map(savedPool => savedPool.poolAdId)
     let findPoolsFiltered = this.props.findPools.filter(findPool => !savedPoolsIdArray.includes(findPool.id) && findPool.zipCode.includes(this.state.zipCode))
     return (
@@ -37,12 +40,14 @@ export default class FindPool extends Component {
             findPoolsFiltered.map(findPool =>
               <div className="card cardCss" key={findPool.id}>
                 <div className="card-body">
+                <img className="card-img-top" src={findPool.url} />
                   <p className="card-text"><strong>Time Available: </strong>{findPool.timeAvailable}</p>
                   <p className="card-text"><strong>Day(s) Available: </strong>{findPool.dateAvailable}</p>
                   <p className="card-text"><strong>Location: </strong>{findPool.location}</p>
                   <p className="card-text"><strong>Zipcode: </strong>{findPool.zipCode}</p>
                   <p className="card-text"><strong>Cost: $ </strong>{findPool.cost}</p>
                   <p className="card-text"><strong>Description: </strong>{findPool.description}</p>
+                  {/* this will display the username of the user who created the pool Ad */}
                   <div>
                     <strong>Created By: {" "}</strong>
                     {this.props.users.find(user =>

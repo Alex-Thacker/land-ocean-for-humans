@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 
 export default class Home extends Component {
+  //set state. this will be used to add a class name to certain element tags. when the class is added, it applies CSS style to hide the element tag. two buttons in the jsx will set the state to either equal nothing or to equal the className hideAbout. 
   state = {
     hideClass: "hideAbout",
     showClass: ""
@@ -28,9 +29,3 @@ export default class Home extends Component {
     )
   }
 }
-
-
-
-// {/* <button type="button" onClick={() => this.props.history.push("/postpool")}>Post Pool</button>
-// <button onClick={() => this.props.history.push("/findpool")}>Find Pool</button>
-// <button onClick={() => this.props.history.push("/mysaveditems")}>Your Saved Items</button> */}
