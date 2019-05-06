@@ -204,6 +204,39 @@
       "dateAvailable": "any day",
       "zipCode": "90210",
       "id": 17
+    },
+    {
+      "userId": 1,
+      "url": "",
+      "timeAvailable": "",
+      "cost": "",
+      "description": "",
+      "location": "",
+      "dateAvailable": "",
+      "zipCode": "",
+      "id": 18
+    },
+    {
+      "userId": 3,
+      "url": "",
+      "timeAvailable": "",
+      "cost": "",
+      "description": "",
+      "location": "",
+      "dateAvailable": "",
+      "zipCode": "",
+      "id": 19
+    },
+    {
+      "userId": 3,
+      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Fd821ed05984a8ebda0b39c73ead89f8d.png?alt=media&token=965b59c5-8e25-48a7-9429-210b82a2f918",
+      "timeAvailable": "",
+      "cost": "",
+      "description": "",
+      "location": "",
+      "dateAvailable": "",
+      "zipCode": "",
+      "id": 20
     }
   ],
   "savedPools": [
@@ -286,6 +319,11 @@
       "userId": 5,
       "poolAdId": 11,
       "id": 16
+    },
+    {
+      "userId": 1,
+      "poolAdId": 17,
+      "id": 17
     }
   ],
   "savedGames": [

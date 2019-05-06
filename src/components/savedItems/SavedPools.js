@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 
 export default class SavedPools extends Component {
+
+  //if user doesn't save an image then I don't want the <img> tag to exisit. this functions is used to see if a img url exisits or not. if it does, it will insert the img into the card, if not then it will not show. 
+  handleImg = (url) => {
+    if(url !== ""){
+        return <img className="card-img-top" src={url}/>
+    }
+}
+
   render() {
     return (
       <React.Fragment>
@@ -11,7 +19,8 @@ export default class SavedPools extends Component {
           this.props.savedPools.map(savedPool =>
             <div className="card cardCss" key={savedPool.id}>
             <div className="card-body">
-            <img className="card-img-top" src={savedPool.poolAd.url} />
+            {this.handleImg(savedPool.poolAd.url)}
+            {/* <img className="card-img-top" src={savedPool.poolAd.url} /> */}
               <p><strong>Time Available: </strong>{savedPool.poolAd.timeAvailable}</p>
               <p><strong>Day(s) Available: </strong>{savedPool.poolAd.dateAvailable}</p>
               <p><strong>Location: </strong>{savedPool.poolAd.location}</p>

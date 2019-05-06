@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import "./postPool.css"
 
 export default class ViewMyPosts extends Component {
+
+  //if user doesn't save an image then I don't want the <img> tag to exisit. this functions is used to see if a img url exisits or not. if it does, it will insert the img into the card, if not then it will not show. 
+  handleImg = (url) => {
+    if(url !== ""){
+        return <img className="card-img-top" src={url}/>
+    }
+}
+
   render() {
     return (
       <React.Fragment>
@@ -13,7 +21,8 @@ export default class ViewMyPosts extends Component {
             this.props.poolAds.map(poolAd => 
                 <div className="card cardCss" key={poolAd.id}>
                 <div className="card-body">
-                    <img className="card-img-top" src={poolAd.url} />
+                    {this.handleImg(poolAd.url)}
+                    {/* <img className="card-img-top" src={poolAd.url} /> */}
                     <p className="card-text"><strong>Time Available: </strong>{poolAd.timeAvailable}</p>
                     <p className="card-text"><strong>Day(s) Available: </strong>{poolAd.dateAvailable}</p>
                     <p className="card-text"><strong>Location: </strong>{poolAd.location}</p>
