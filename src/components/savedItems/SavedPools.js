@@ -5,7 +5,7 @@ export default class SavedPools extends Component {
   //if user doesn't save an image then I don't want the <img> tag to exisit. this functions is used to see if a img url exisits or not. if it does, it will insert the img into the card, if not then it will not show. 
   handleImg = (url) => {
     if(url !== ""){
-        return <img className="card-img-top" src={url}/>
+        return <img className="card-img-top" src={url} alt="pool" />
     }
 }
 

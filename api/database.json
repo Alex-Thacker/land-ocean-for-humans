@@ -324,6 +324,11 @@
       "userId": 1,
       "poolAdId": 17,
       "id": 17
+    },
+    {
+      "userId": 1,
+      "poolAdId": 5,
+      "id": 18
     }
   ],
   "savedGames": [

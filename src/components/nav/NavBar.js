@@ -25,6 +25,9 @@ export default class NavBar extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to="/mysaveditems">My Saved Items</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/forecast">Forecast</Link>
+                    </li>
                     <li className="nav-item"><Link className="ml-10 nav-link" onClick={() => sessionStorage.clear()} to="/">Logout</Link>
                     </li>
                 </ul>
