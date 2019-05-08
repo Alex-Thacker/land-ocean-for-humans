@@ -11,20 +11,16 @@ export default class Forecast extends Component {
         zipObject2: {}
     }
 
+    //handleChange uses something called zip = require("zipcodes"). this was installed from a npm package. this will take the zipcode the user enters, and convert it to latitude and longitude. it also provides the city, state, and country the zipcode is from. lat and long is needed because we're pulling from an external API called darkSky. the fetch call needs lat and long values to return weather data base on location. 
     handleChange = event => {
         let newState = {}
         let zip = require("zipcodes")
         let latLong = zip.lookup(event.target.value)
         newState[event.target.id] = latLong
         this.setState(newState)
-        // console.log(event.target.value.length)
-        // if(event.target.value.length === 5) {
-        //     newState.darkSky = false
-        //     this.setState(newState)
-            
-        // }
     }
 
+    //handle click takes the same data as zipObject and sets it into zipObject2. This is needed to keep the data from zipObject. when the user enters a different zipcode, handleChange will change the data for zipObject. so we store the data into zipObject2. it then takes the lat and long values we obtained and use it for the fetch call and then setState to be passed into the darkSky component. if zipObject is undefine, we don't want to do the fetch call and let the user know that the zipcode they enter (or didn't enter) is invalid and return message "Not a zipcode". the function also changes the state of darkSky from false to true. when darkSky is set to true, darkSky component will run. 
     handleClick = event => {
         event.preventDefault()
         let newState = {}
@@ -44,16 +40,6 @@ export default class Forecast extends Component {
         }
     }
 
-    // test = () => {
-    //     window.alert("Umm thats not a zipcode")
-    //     this.setState({
-    //         zipObject: {},
-    //         darkSky: false
-    //     })
-    // }
-
-
-
     render() {
         return (
             <React.Fragment>
@@ -63,8 +49,10 @@ export default class Forecast extends Component {
                         <label>Enter Zipcode Here: </label>
                         <input onChange={this.handleChange} id="zipObject" type="text" placeholder="Enter Zipcode Here" />
                         <button className="btn btn-primary searchCss" onClick={this.handleClick}>Search</button>
+
+                        {/* when button is clicked, this.state.darkSky is set to true, which will then run the component DarkSky. zipObject2 is passed in to obtain the city and state based on the zipcode the user entered. weatherArray is the information obtained from the fetch call from darkSky API. */}
                         {this.state.darkSky && <DarkSky zipObject={this.state.zipObject2} weatherArray={this.state.weatherArray} />}
-                        {/* {this.state.zipObject === undefined && this.test()} */}
+                        
                     </div>
                 </div>
             </React.Fragment>

@@ -6,6 +6,7 @@ import partlyCloudy from "./weatherIconPics/cloudy.png"
 import fog from "./weatherIconPics/fog.2.png"
 
 export default class DarkSky extends Component {
+    //function is used to convert UNIX time to a readable format.  darkSky API used UNIX time. the argument t is where you input the UNIX time. 
     timeStamp = t => {
         let dt = new Date(t * 1000);
         let year = dt.getFullYear()
@@ -25,18 +26,21 @@ export default class DarkSky extends Component {
         return dateObject
     }
 
-    twoDecimal = (number) => {
+    //when using chance of rain, it starts as a decimal from the darkSky API. we take the decimal and multiply by a 100 to convert to a percent and then use this function to not have any decimal points
+    noDecimal = (number) => {
         return Number.parseFloat(number).toFixed(0);
     }
 
+    //the data will sometimes return weather.precipType as undefine if there was a 0% chance of rain. if it came back undefine i wanted to change the string to something else that made more sense. I also multiply precipProbability by 100 to convert it from decimal to percent. and run function noDecimal so that no decimal points appear. 
     chanceOfRain = weather => {
         if (weather.precipType !== undefined) {
-            return <p>Chance of {weather.precipType}: {this.twoDecimal(weather.precipProbability * 100)}%</p>
+            return <p>Chance of {weather.precipType}: {this.noDecimal(weather.precipProbability * 100)}%</p>
         } else {
-            return <p>Chance of precipitation: {this.twoDecimal(weather.precipProbability * 100)}%</p>
+            return <p>Chance of precipitation: {this.noDecimal(weather.precipProbability * 100)}%</p>
         }
     }
 
+    //the data brought back something called "icon". I wanted to place an icon for the most common values. I hardcoded some pictures into my file and when icon equals a certain value, a picture will appear base on it
     weatherIcon = weather => {
         if (weather.icon === "clear-day") {
             return <img className="weatherIcon" src={clearDay} alt="sun" />
@@ -56,7 +60,6 @@ export default class DarkSky extends Component {
     }
 
     render() {
-        // console.log(this.props.weatherArray)
         return (
             <div>
                 <h2 className="testH2">For: {this.props.zipObject.city}, {this.props.zipObject.state}</h2>

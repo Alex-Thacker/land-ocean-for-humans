@@ -41,12 +41,3 @@ export default class ViewMyPosts extends Component {
     )
   }
 }
-
-// "id": 3,
-// "userId": 1,
-// "photoLink": "",
-// "timeAvailable": "522",
-// "cost": 0,
-// "description": "super test mode",
-// "location": "555 devils lane",
-// "dateAvailable": "1/29/19"

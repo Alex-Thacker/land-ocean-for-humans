@@ -135,12 +135,3 @@ render() {
     )
 }
 }
-
-// "id": 1,
-// "userId": 1,
-// "photoLink": "",
-// "timeAvailable": "5",
-// "cost": 10,
-// "description": "no pets allowed",
-// "location": "123 test lane",
-// "dateAvailable": "4/29/19"
