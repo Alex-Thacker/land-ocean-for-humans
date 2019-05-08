@@ -86,25 +86,7 @@ export default class PostPoolForm extends Component {
         }
     }
 
-    // timeStamp = t => {
-    //     var dt = new Date(t * 1000);
-    //     let year = dt.getFullYear()
-    //     let month = dt.getMonth()
-    //     let weekDay = dt.getDay();
-    //     let day = dt.getDate()
-
-    //     let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-
-    //     let allMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
-        
-    //     return weekDays[weekDay] + " " + " " + day + allMonths[month] + " " + year;
-    // }
-
 render() {
-    // var zipcodes = require('zipcodes');
-    // var hills = zipcodes.lookup(37146);
-    // console.log(hills.latitude)
-    // console.log(this.timeStamp(1557637200))
     return (
         <React.Fragment>
             {/* basic jsx form. id's of input fields math the key values of state so we know which key of state we want to alter.  */}
