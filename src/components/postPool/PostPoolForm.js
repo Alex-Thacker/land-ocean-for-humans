@@ -114,7 +114,7 @@ render() {
                 <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
                 <input type="file" onChange={this.handlePhoto} id="photoLink" />
                 <div>
-                    <button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Save image</button>
+                    <button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Upload</button>
                 </div>
                 {this.handleImg()}
                 <form className="postPoolForm" onSubmit={this.handlePostPool}>

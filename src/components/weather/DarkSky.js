@@ -56,7 +56,7 @@ export default class DarkSky extends Component {
     }
 
     render() {
-        console.log(this.props.weatherArray)
+        // console.log(this.props.weatherArray)
         return (
             <div>
                 <h2 className="testH2">For: {this.props.zipObject.city}, {this.props.zipObject.state}</h2>

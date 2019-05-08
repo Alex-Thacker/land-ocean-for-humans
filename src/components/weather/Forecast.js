@@ -5,46 +5,52 @@ import ResourceManager from "../../ResourceManager"
 export default class Forecast extends Component {
     state = {
         zipCode: "",
-        zipObject: {},
+        zipObject: undefined,
         darkSky: false,
-        weatherArray: []
+        weatherArray: [],
+        zipObject2: {}
     }
 
     handleChange = event => {
         let newState = {}
-        newState[event.target.id] = event.target.value
+        let zip = require("zipcodes")
+        let latLong = zip.lookup(event.target.value)
+        newState[event.target.id] = latLong
         this.setState(newState)
+        // console.log(event.target.value.length)
+        // if(event.target.value.length === 5) {
+        //     newState.darkSky = false
+        //     this.setState(newState)
+            
+        // }
     }
-    // var zipcodes = require('zipcodes');
-    // var hills = zipcodes.lookup(37146);
-    // console.log(hills.latitude)
+
     handleClick = event => {
         event.preventDefault()
-        if (this.state.zipCode !== "") {
-            let newState = {}
-            let zip = require("zipcodes")
-            let latLong = zip.lookup(this.state.zipCode)
-            newState.zipObject = latLong
+        let newState = {}
+        newState.zipObject2 = this.state.zipObject
+
+        if (this.state.zipObject !== undefined) {
             newState.darkSky = true
             this.setState(newState)
-            console.log(latLong)
+            // console.log(latLong)
 
-            ResourceManager.darkSky(latLong.latitude, latLong.longitude)
+            ResourceManager.darkSky(this.state.zipObject.latitude, this.state.zipObject.longitude)
             .then(r => this.setState({
                 weatherArray: r.daily.data
             }))
         } else {
-            window.alert("Did you enter a Zipcode?")
+            window.alert("Not a zipcode")
         }
     }
 
-    test = () => {
-        window.alert("Umm thats not a zipcode")
-        this.setState({
-            zipObject: {},
-            darkSky: false
-        })
-    }
+    // test = () => {
+    //     window.alert("Umm thats not a zipcode")
+    //     this.setState({
+    //         zipObject: {},
+    //         darkSky: false
+    //     })
+    // }
 
 
 
@@ -55,10 +61,10 @@ export default class Forecast extends Component {
                     <h1 className="viewMyPostH1">Eight Day Forecast</h1>
                     <div className="zipCodeDiv">
                         <label>Enter Zipcode Here: </label>
-                        <input onChange={this.handleChange} id="zipCode" type="text" placeholder="Enter Zipcode Here" />
+                        <input onChange={this.handleChange} id="zipObject" type="text" placeholder="Enter Zipcode Here" />
                         <button className="btn btn-primary searchCss" onClick={this.handleClick}>Search</button>
-                        {this.state.darkSky && this.state.zipObject !== undefined && <DarkSky zipObject={this.state.zipObject} weatherArray={this.state.weatherArray} />}
-                        {this.state.zipObject === undefined && this.test()}
+                        {this.state.darkSky && <DarkSky zipObject={this.state.zipObject2} weatherArray={this.state.weatherArray} />}
+                        {/* {this.state.zipObject === undefined && this.test()} */}
                     </div>
                 </div>
             </React.Fragment>
