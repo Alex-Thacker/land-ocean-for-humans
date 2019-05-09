@@ -23,7 +23,10 @@ export default class NavBar extends Component {
                         <Link className="nav-link" to="/findpool">Find Pool</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/mysaveditems">My Saved Items</Link>
+                        <Link className="nav-link" to="/mysaveditems">Favorites</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/forecast">Forecast</Link>
                     </li>
                     <li className="nav-item"><Link className="ml-10 nav-link" onClick={() => sessionStorage.clear()} to="/">Logout</Link>
                     </li>

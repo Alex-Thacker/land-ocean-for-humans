@@ -70,5 +70,8 @@ export default {
         return fetch(`http://localhost:5002/savedPools/${id}`, {
             method: "DELETE"
         })
+    },
+    darkSky(lat, long) {
+        return fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8774613f77c8add5e82f4f04ef1e87dc/${lat},${long}?exclude=[currently,minutely,hourly]`).then(r => r.json())
     }
 }

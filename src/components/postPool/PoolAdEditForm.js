@@ -13,7 +13,7 @@ export default class PoolAdEditForm extends Component {
         location: "",
         dateAvailable: "",
         zipCode: "",
-        photoLink: "",
+        // photoLink: "",
         url: "",
         loadMax: "",
         loadMin: ""
@@ -54,9 +54,10 @@ export default class PoolAdEditForm extends Component {
 
     }
 
+    //if user doesn't save an image then I don't want the <img> tag to exisit. this functions is used to see if a img url exisits or not. if it does, it will insert the img into the card, if not then it will not show. 
     handleImg = () => {
         if(this.state.url !== ""){
-            return <img className="previewImg" src={this.state.url}/>
+            return <img className="previewImg" src={this.state.url} alt="pool or something pool related... I hope" />
         }
     }
 
@@ -114,7 +115,7 @@ export default class PoolAdEditForm extends Component {
                     <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
                             <input type="file" onChange={this.handlePhoto} id="photoLink" />
                             <div>
-                            <button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Save image</button>
+                            <button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Upload</button>
                             </div>
                             {this.handleImg()}
                     <form className="postPoolForm" onSubmit={this.handlePutPoolAd}>

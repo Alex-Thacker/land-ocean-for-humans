@@ -27,8 +27,8 @@ export default class Register extends Component {
 
         let mapUserName = this.props.users.find(user => user.userName.toLowerCase() === this.state.userName.toLowerCase())
 
-        if(mapUserName) {
-            window.alert("USERNAME ALREADY TAKEN YO!")
+        if(mapUserName || this.state.userName === "" || this.state.password === "") {
+            window.alert("Something seems to be wrong")
         } else {
             this.props.postUsers(object)
             .then(() => ResourceManager.getUsers())
