@@ -6,7 +6,7 @@ export default class PostPoolForm extends Component {
     //define state for data to be passed through it
     state = {
         userId: "",
-        photoLink: "",
+        // photoLink: "",
         url: "",
         timeAvailable: "",
         cost: "",
@@ -18,6 +18,7 @@ export default class PostPoolForm extends Component {
         loadMax: ""
     }
 
+    //if a file exisit, set the image to a variable
     handlePhoto = event => {
         if (event.target.files[0]) {
             const image = event.target.files[0]
@@ -27,6 +28,7 @@ export default class PostPoolForm extends Component {
         }
     }
 
+    //take the image and store it into cloud service. snapshot shows download time. error if anything goes wrong, then finally store image with name, then set state to provide link to the url to use in img tag. 
     handleUpload = () => {
         const image = this.state.photoLink
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
@@ -79,67 +81,61 @@ export default class PostPoolForm extends Component {
             .then(() => this.props.history.push("/postpoolfinish"))
     }
 
+    //if user doesn't save an image then I don't want the <img> tag to exisit. this functions is used to see if a img url exisits or not. if it does, it will insert the img into the card, if not then it will not show. 
     handleImg = () => {
-        if(this.state.url !== ""){
-            return <img className="previewImg" src={this.state.url}/>
+        if (this.state.url !== "") {
+            return <img className="previewImg" src={this.state.url} alt="pool" />
         }
     }
 
-    render() {
-        return (
-            <React.Fragment>
-                {/* basic jsx form. id's of input fields math the key values of state so we know which key of state we want to alter.  */}
-                <div className="postPoolBackground">
-                    <h1>Post a Pool!</h1>
-                    <label className="progressLabel">Progress: </label>
-                    <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
-                            <input type="file" onChange={this.handlePhoto} id="photoLink" />
-                            <div>
-                            <button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Save image</button>
-                            </div>
-                            {this.handleImg()}
-                    <form className="postPoolForm" onSubmit={this.handlePostPool}>
-                        <div className="form-row">
-                            <div className="form-group col-md-6">
-                                <label>Time During the Day they can Swim: </label>
-                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="timeAvailable" placeholder="Example: Noon-5pm" />
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>What day(s) are you open?: </label>
-                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="dateAvailable" placeholder="Example: Monday-Friday, Weekends" />
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>Your location?: </label>
-                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="location" placeholder="Where you at?" />
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>Your zipcode?: </label>
-                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="zipCode" placeholder="Example: 90210" />
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>Entry Fee?: (Optional) </label>
-                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="cost" placeholder="You want to charge?" />
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>Any Other Details They Should Know?: </label>
-                                <input className="form-control textbox" type="text" onChange={this.handleChange} id="description" placeholder="Anything else?" />
-                            </div>
-                            <div className="form-group">
-                                <button className="btn btn-primary" type="submit">Save Pool</button>
-                            </div>
-                        </div>
-                    </form>
+render() {
+    let chrono = require('chrono-node');
+    console.log(chrono.parseDate('monday-tuesday'));
+    return (
+        <React.Fragment>
+            {/* basic jsx form. id's of input fields math the key values of state so we know which key of state we want to alter.  */}
+            <div className="postPoolBackground">
+                <h1>Post a Pool!</h1>
+                <label className="progressLabel">Progress: </label>
+                <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
+                <input type="file" onChange={this.handlePhoto} id="photoLink" />
+                <div>
+                    <button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Upload</button>
                 </div>
-            </React.Fragment>
-        )
-    }
+                {this.handleImg()}
+                <form className="postPoolForm" onSubmit={this.handlePostPool}>
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                            <label>Time During the Day they can Swim: </label>
+                            <input className="form-control textbox" type="text" onChange={this.handleChange} id="timeAvailable" placeholder="Example: Noon-5pm" />
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label>What day(s) are you open?: </label>
+                            <input className="form-control textbox" type="text" onChange={this.handleChange} id="dateAvailable" placeholder="Example: Monday-Friday, Weekends" />
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label>Your location?: </label>
+                            <input className="form-control textbox" type="text" onChange={this.handleChange} id="location" placeholder="Where you at?" />
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label>Your zipcode?: </label>
+                            <input className="form-control textbox" type="text" onChange={this.handleChange} id="zipCode" placeholder="Example: 90210" />
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label>Entry Fee?: (Optional) </label>
+                            <input className="form-control textbox" type="text" onChange={this.handleChange} id="cost" placeholder="You want to charge?" />
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label>Any Other Details They Should Know?: </label>
+                            <input className="form-control textbox" type="text" onChange={this.handleChange} id="description" placeholder="Anything else?" />
+                        </div>
+                        <div className="form-group">
+                            <button className="btn btn-primary" type="submit">Save Pool</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </React.Fragment>
+    )
 }
-
-// "id": 1,
-// "userId": 1,
-// "photoLink": "",
-// "timeAvailable": "5",
-// "cost": 10,
-// "description": "no pets allowed",
-// "location": "123 test lane",
-// "dateAvailable": "4/29/19"
+}

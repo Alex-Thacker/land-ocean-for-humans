@@ -10,6 +10,7 @@ import PoolAdEditForm from "./postPool/PoolAdEditForm"
 import FindPool from "./findPool/FindPool"
 import SavedPools from "./savedItems/SavedPools"
 import Register from "./login/Register"
+import Forecast from "./weather/Forecast"
 
 export default class ApplicationViews extends Component {
     //set up state to contain all data obtained from first fetch calls and fetch calls after login happens. findPools is specific data that does not include the current user Id. this allows the user to only see pool Ads that other people made and not their own. 
@@ -182,6 +183,13 @@ export default class ApplicationViews extends Component {
                     } else {
                         return <Redirect to="/" />
                     }
+                }} />
+                <Route exact path="/forecast" render={(props) => {
+                    if(this.isValid()) {
+                        return <Forecast />
+                    } else {
+                        return <Redirect to="/" />
+                    } 
                 }} />
             </React.Fragment>
         )

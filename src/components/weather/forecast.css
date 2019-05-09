@@ -1,0 +1,20 @@
+.testH2{
+    color: black;
+    width: 600px;
+    font-size: 40px;
+    border-bottom: 6px solid #4caf50;
+    margin-bottom: 50px; 
+    padding: 13px 0;
+    margin-left: 25px;
+}
+
+.weatherIcon{
+    width: 11rem;
+    height: 11rem;
+}
+
+.weatherFlexContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

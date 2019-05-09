@@ -28,7 +28,7 @@ export default class Login extends Component {
             this.props.onLogin()
             this.props.history.push("/home")
         } else {
-            window.alert("Information not found MOTHERFUC#%$")
+            window.alert("Information not found")
         }
     }
 

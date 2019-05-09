@@ -23,10 +23,20 @@ export default class FindPool extends Component {
 
     this.props.postSavedPool(object)
   }
+
+  //if user doesn't save an image then I don't want the <img> tag to exisit. this functions is used to see if a img url exisits or not. if it does, it will insert the img into the card, if not then it will not show. 
+  handleImg = (url) => {
+    if(url !== ""){
+        return <img className="card-img-top" src={url} alt="pool"/>
+    }
+}
+
   render() {
+
     //creates an array with filter data. this compares poolAdId's with the Id from poolAds resource. this allows the user to only see pools that are not saved under user and also doesn't show pools that the user created.  also compares the zipCode that the user types into an input field with the zipCode in the json file. this provides further filter options for the user. 
     let savedPoolsIdArray = this.props.savedPools.map(savedPool => savedPool.poolAdId)
     let findPoolsFiltered = this.props.findPools.filter(findPool => !savedPoolsIdArray.includes(findPool.id) && findPool.zipCode.includes(this.state.zipCode))
+
     return (
       <React.Fragment>
         <h1 className="viewMyPostH1">Find a pool that fits you</h1>
@@ -40,7 +50,8 @@ export default class FindPool extends Component {
             findPoolsFiltered.map(findPool =>
               <div className="card cardCss" key={findPool.id}>
                 <div className="card-body">
-                <img className="card-img-top" src={findPool.url} />
+                {this.handleImg(findPool.url)}
+                {/* <img className="card-img-top" src={findPool.url} /> */}
                   <p className="card-text"><strong>Time Available: </strong>{findPool.timeAvailable}</p>
                   <p className="card-text"><strong>Day(s) Available: </strong>{findPool.dateAvailable}</p>
                   <p className="card-text"><strong>Location: </strong>{findPool.location}</p>
@@ -54,7 +65,7 @@ export default class FindPool extends Component {
                       user.id === findPool.userId).userName}
                   </div>
                   <hr></hr>
-                  <button className="btn btn-primary" onClick={() => this.handlePostPool(findPool.id)}>Save Pool</button>
+                  <button className="btn btn-primary" onClick={() => this.handlePostPool(findPool.id)}>Save to Favorites</button>
                 </div>
               </div>
             )
@@ -64,19 +75,3 @@ export default class FindPool extends Component {
     )
   }
 }
-// "id": 1,
-// "userId": 1,
-// "poolAdId": 3
-
-// {this.props.users.find(user =>
-//     user.id === entry.userId
-//   ).userName}
-
-// "id": 3,
-// "userId": 1,
-// "photoLink": "",
-// "timeAvailable": "522",
-// "cost": 0,
-// "description": "super test mode",
-// "location": "555 devils lane",
-// "dateAvailable": "1/29/19"
