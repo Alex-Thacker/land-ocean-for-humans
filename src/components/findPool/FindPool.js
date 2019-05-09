@@ -65,7 +65,7 @@ export default class FindPool extends Component {
                       user.id === findPool.userId).userName}
                   </div>
                   <hr></hr>
-                  <button className="btn btn-primary" onClick={() => this.handlePostPool(findPool.id)}>Save Pool</button>
+                  <button className="btn btn-primary" onClick={() => this.handlePostPool(findPool.id)}>Save to Favorites</button>
                 </div>
               </div>
             )

@@ -23,7 +23,7 @@ export default class NavBar extends Component {
                         <Link className="nav-link" to="/findpool">Find Pool</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/mysaveditems">My Saved Items</Link>
+                        <Link className="nav-link" to="/mysaveditems">Favorites</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/forecast">Forecast</Link>

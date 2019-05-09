@@ -12,7 +12,7 @@ export default class SavedPools extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1 className="viewMyPostH1">Pools you've saved</h1>
+        <h1 className="viewMyPostH1">Your Favorites</h1>
         <div className="flexContainer">
         {/* map is needed to iterate through the array of savedPools. after that, we use the data where we want it to be displayed.  Bootstrap classes are added for styling.  */}
         {
@@ -34,7 +34,7 @@ export default class SavedPools extends Component {
                   user.id === savedPool.poolAd.userId).userName}
               </div>
               <hr></hr>
-              <button className="btn btn-primary" onClick={() => this.props.deleteSavedPool(savedPool.id)}>Delete from Saved</button>
+              <button className="btn btn-primary" onClick={() => this.props.deleteSavedPool(savedPool.id)}>Delete from Favorites</button>
               </div>
             </div>
           )

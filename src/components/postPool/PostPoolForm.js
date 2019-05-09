@@ -18,6 +18,7 @@ export default class PostPoolForm extends Component {
         loadMax: ""
     }
 
+    //if a file exisit, set the image to a variable
     handlePhoto = event => {
         if (event.target.files[0]) {
             const image = event.target.files[0]
@@ -27,6 +28,7 @@ export default class PostPoolForm extends Component {
         }
     }
 
+    //take the image and store it into cloud service. snapshot shows download time. error if anything goes wrong, then finally store image with name, then set state to provide link to the url to use in img tag. 
     handleUpload = () => {
         const image = this.state.photoLink
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
@@ -87,6 +89,8 @@ export default class PostPoolForm extends Component {
     }
 
 render() {
+    let chrono = require('chrono-node');
+    console.log(chrono.parseDate('monday-tuesday'));
     return (
         <React.Fragment>
             {/* basic jsx form. id's of input fields math the key values of state so we know which key of state we want to alter.  */}
