@@ -34,19 +34,19 @@ export default class PostPoolForm extends Component {
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
         uploadTask.on("state_changed",
             (snapshot) => {
-                console.log(snapshot.bytesTransferred)
-                console.log(snapshot.totalBytes)
+                // console.log(snapshot.bytesTransferred)
+                // console.log(snapshot.totalBytes)
                 this.setState({
                     loadMin: snapshot.bytesTransferred,
                     loadMax: snapshot.totalBytes
                 })
             },
             (error) => {
-                console.log(error)
+                // console.log(error)
             },
             () => {
                 storage.ref('images').child(image.name).getDownloadURL().then(url => {
-                    console.log(url)
+                    // console.log(url)
                     this.setState({ url })
                 })
             }
