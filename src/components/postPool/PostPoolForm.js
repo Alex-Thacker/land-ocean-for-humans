@@ -89,14 +89,14 @@ export default class PostPoolForm extends Component {
     }
 
 render() {
-    let chrono = require('chrono-node');
-    console.log(chrono.parseDate('monday-tuesday'));
+    // let chrono = require('chrono-node');
+    // console.log(chrono.parseDate('monday-tuesday'));
     return (
         <React.Fragment>
             {/* basic jsx form. id's of input fields math the key values of state so we know which key of state we want to alter.  */}
             <div className="postPoolBackground">
                 <h1>Post a Pool!</h1>
-                <label className="progressLabel">Progress: </label>
+                <label className="progressLabel">Photo Upload Progress: </label>
                 <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
                 <input type="file" onChange={this.handlePhoto} id="photoLink" />
                 <div>

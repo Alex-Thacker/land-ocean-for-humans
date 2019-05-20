@@ -18,6 +18,7 @@ export default class Forecast extends Component {
         let latLong = zip.lookup(event.target.value)
         newState[event.target.id] = latLong
         this.setState(newState)
+        // console.log(latLong)
     }
 
     //handle click takes the same data as zipObject and sets it into zipObject2. This is needed to keep the data from zipObject. when the user enters a different zipcode, handleChange will change the data for zipObject. so we store the data into zipObject2. it then takes the lat and long values we obtained and use it for the fetch call and then setState to be passed into the darkSky component. if zipObject is undefine, we don't want to do the fetch call and let the user know that the zipcode they enter (or didn't enter) is invalid and return message "Not a zipcode". the function also changes the state of darkSky from false to true. when darkSky is set to true, darkSky component will run. 

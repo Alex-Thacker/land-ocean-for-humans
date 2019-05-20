@@ -111,7 +111,7 @@ export default class PoolAdEditForm extends Component {
             <React.Fragment>
                 <div className="postPoolBackground">
                     <h1>Edit your post</h1>
-                    <label className="progressLabel">Progress: </label>
+                    <label className="progressLabel">Photo Upload Progress: </label>
                     <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
                             <input type="file" onChange={this.handlePhoto} id="photoLink" />
                             <div>

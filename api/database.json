@@ -33,15 +33,16 @@
   ],
   "poolAds": [
     {
+      "id": 1,
       "userId": 1,
-      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Fpool.jpg?alt=media&token=ace5549d-7aff-4644-b60d-87e08137e31d",
+      "photoLink": "",
       "timeAvailable": "Noon-5pm",
       "cost": "20",
       "description": "bad place to swim",
       "location": "123 test drive",
       "dateAvailable": "Monday-Tuesday",
       "zipCode": "90210",
-      "id": 1
+      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Fpool.jpg?alt=media&token=ace5549d-7aff-4644-b60d-87e08137e31d"
     },
     {
       "id": 2,
@@ -56,15 +57,16 @@
       "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Fadheesha-paranagama-1054591-unsplash.jpg?alt=media&token=5c37a57c-26cc-4643-932e-ad828e47e768"
     },
     {
+      "id": 3,
       "userId": 1,
-      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Falex-hall-1321845-unsplash.jpg?alt=media&token=324332c7-f1b6-459e-8fb5-a717bcdcbbb0",
+      "photoLink": "",
       "timeAvailable": "anytime",
-      "cost": "",
-      "description": "no pets in the pool",
+      "cost": "0",
+      "description": "yes pets in the pool",
       "location": "5555 eagle lane",
       "dateAvailable": "friday-saturday",
       "zipCode": "37909",
-      "id": 3
+      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Falex-hall-1321845-unsplash.jpg?alt=media&token=324332c7-f1b6-459e-8fb5-a717bcdcbbb0"
     },
     {
       "userId": 2,
@@ -212,41 +214,6 @@
       "id": 17
     },
     {
-      "userId": 1,
-      "url": "",
-      "timeAvailable": "",
-      "cost": "",
-      "description": "",
-      "location": "",
-      "dateAvailable": "",
-      "zipCode": "",
-      "id": 18
-    },
-    {
-      "userId": 3,
-      "url": "",
-      "timeAvailable": "",
-      "cost": "",
-      "description": "",
-      "location": "",
-      "dateAvailable": "",
-      "zipCode": "",
-      "id": 19
-    },
-    {
-      "userId": 3,
-      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Fd821ed05984a8ebda0b39c73ead89f8d.png?alt=media&token=965b59c5-8e25-48a7-9429-210b82a2f918",
-      "timeAvailable": "",
-      "cost": "",
-      "description": "",
-      "location": "",
-      "dateAvailable": "",
-      "zipCode": "",
-      "id": 20
-    }
-  ],
-  "savedPools": [
-    {
       "userId": 3,
       "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Fd821ed05984a8ebda0b39c73ead89f8d.png?alt=media&token=965b59c5-8e25-48a7-9429-210b82a2f918",
       "timeAvailable": "",
@@ -259,37 +226,26 @@
     },
     {
       "id": 21,
-      "userId": 1,
+      "userId": 6,
       "photoLink": "",
       "timeAvailable": "anytime",
       "cost": "20",
-      "description": "Don't pee in the pool.",
-      "location": "123 Sesame Street",
+      "description": "not actually a pool",
+      "location": "5555 eagle lane",
       "dateAvailable": "any day",
       "zipCode": "90210",
-      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Fjay-6291-unsplash.jpg?alt=media&token=ce14c73a-3a34-4d70-952c-7418aa9fa6fa"
+      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2F37265_abstract_colorful_funky.jpg?alt=media&token=bc018928-8199-4be8-962e-9b93f0053dc7"
     },
     {
       "userId": 6,
-      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2F37265_abstract_colorful_funky.jpg?alt=media&token=5a0f98dd-b752-4403-a7a1-fa2b022c8a72",
-      "timeAvailable": "10 pm",
+      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Froberto-nickson-1229141-unsplash.jpg?alt=media&token=10d7a648-0dde-4d1b-86c1-84bf75a03abf",
+      "timeAvailable": "anytime",
       "cost": "10",
-      "description": "bad place to swim",
+      "description": "pool still needs water",
       "location": "123 test lane",
-      "dateAvailable": "any day",
-      "zipCode": "90210",
+      "dateAvailable": "Monday-Tuesday",
+      "zipCode": "37146",
       "id": 22
-    },
-    {
-      "userId": 6,
-      "url": "https://firebasestorage.googleapis.com/v0/b/land-ocean-76341.appspot.com/o/images%2Flink.jpg?alt=media&token=6d24af84-e5fa-487e-bb17-57ac4c94b44d",
-      "timeAvailable": "10 pm",
-      "cost": "10",
-      "description": "beware of shark",
-      "location": "123 meeeeoowwwwza lane",
-      "dateAvailable": "any day",
-      "zipCode": "90210",
-      "id": 23
     }
   ],
   "savedPools": [
@@ -364,24 +320,14 @@
       "id": 16
     },
     {
-      "userId": 1,
-      "poolAdId": 17,
-      "id": 17
-    },
-    {
-      "userId": 1,
-      "poolAdId": 5,
-      "id": 18
-    },
-    {
-      "userId": 1,
-      "poolAdId": 9,
-      "id": 20
-    },
-    {
       "userId": 6,
       "poolAdId": 8,
       "id": 22
+    },
+    {
+      "userId": 1,
+      "poolAdId": 14,
+      "id": 23
     }
   ],
   "savedGames": [

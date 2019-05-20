@@ -57,9 +57,13 @@ export default class DarkSky extends Component {
         if (weather.icon === "fog") {
             return <img className="weatherIcon" src={fog} alt="fog" />
         }
+        if (weather.icon === "cloudy") {
+            return <img className="weatherIcon" src={partlyCloudy} alt="partlyCloudy" />
+        }
     }
 
     render() {
+        // console.log(this.props.weatherArray)
         return (
             <div>
                 <h2 className="testH2">For: {this.props.zipObject.city}, {this.props.zipObject.state}</h2>
